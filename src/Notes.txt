@@ -1,0 +1,16 @@
+=> In loginPage css we have adjusted the css react-tel-input .flag-dropdown && .react-tel-input .selected-flag manually this should be corrected.
+=> In login.js file Need to check why myPhonenumber is returning a object instead of number after taking input
+=> If already a user logins again need to handle name scenario.
+=> get all the text values from Db instead of hardcode values
+
+Behaviour of the app:
+- ABOUT section: 
+- NEED REFERRAL section: User can submit their details for job opportunities (needs resume file)
+  - Resume is stored in Db
+  - If any other user, opts for `can refer` the stored resumes will be shared to this user (through email)
+- CAN REFER section: 
+  - Needs work email (implemented)
+  - For privacy concerns, we need to setup OTP verification through work email (TO DO)
+  - Once the `can refer` section is completed by the user, admin will verify and email the resumes accordingly
+- STUDENT section:
+  - Need to display job opportunities

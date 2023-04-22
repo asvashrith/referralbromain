@@ -1,0 +1,23 @@
+.mainPageParent{
+    margin-left: 30px;
+    margin-right: 30px;
+    justify-content: center;
+}
+.headingTag{
+    background-color: #2e466e !important;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    flex: column;
+    display: flex;
+    margin-bottom: 1px;
+}
+.headingTagText{
+    color: white;
+}
+.gaJdmQ {
+    background: #2e466e !important;
+    margin-bottom: 1px;
+}.kvEdTd {
+    color: white !important;
+}

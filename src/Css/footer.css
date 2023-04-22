@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    height:1000px;
+    }
+    .App{
+    color: #2e466e;
+    text-align: center;
+    }
+    .footermain{
+        justify-content: center;
+    }
+    .footer {
+    display: flex;
+    justify-content: center;
+    background-color: #2e466e;
+    position: fixed;
+    width: 95%;
+    bottom: 0;
+    color: white;
+    font-size: 25px;
+    }
+    .Admin{
+        cursor: pointer;
+    }

@@ -1,0 +1,65 @@
+.parent{
+    align-items: center;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+        
+}
+.inputBox {
+    background-color: rgb(194, 109, 143);
+    padding: 50px;
+}
+.inputName{    
+    position: relative;
+    font-size: 14px;
+    letter-spacing: .01rem;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    background: #FFFFFF;
+    border: 1px solid #CACACA;
+    border-radius: 5px;
+    line-height: 25px;
+    outline: none;
+}
+.loginButton{
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.captcha{
+    margin-bottom: 10px;
+}
+.verifyButton{
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.inputOTP{
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #CACACA;
+    width: 98%;
+}
+.phoneInputName{
+    font-weight: bold;
+    margin-top: 10px;
+}
+.nameInputName{
+    font-weight: bold;
+    margin-top: 10px;    
+}
+.inputNameBox{
+    position: relative;
+    font-size: 14px;
+    letter-spacing: .01rem;
+    background: #FFFFFF;
+    border: 1px solid #CACACA;
+    border-radius: 5px;
+    line-height: 25px;
+    height: 30px;
+    width: 300px;
+    outline: none;
+}
+.inputOtpName{
+    font-weight: bold;
+    margin-top: 10px;
+}

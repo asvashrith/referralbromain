@@ -4,7 +4,7 @@ import { auth } from '../firebase';
 import { BrowserRouter as Router, Routes, Route, Link , useNavigate } from "react-router-dom";
 import CanRefer from '../mainpage/CanRefer';
 import AboutPage from '../mainpage/AboutPage';
-import NeedReferral from '../mainpage/NeedReferral'; 
+import NeedReferral from '../mainpage/NeedReferral';
 import StudentPage from '../mainpage/StudentPage';
 import AdminPage from '../admin/AdminPage';
 import Footerpage from '../footer/footer';
@@ -36,7 +36,7 @@ const Mainpage = () => {
 						<NavLink to='/canRefer'>Can Refer</NavLink>
 						<NavLink to='/student'>Student</NavLink>
 						<NavLink to={"#"}>
-							<Button class = 'navItems' onClick={logout}>logout</Button>
+							<button class = 'navItems' onClick={logout}>logout</button>
 						</NavLink>
 					</Toolbar>
 				</AppBar>

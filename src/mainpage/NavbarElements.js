@@ -15,19 +15,19 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color: #808080;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 1rem;
-  cursor: pointer;
-  &.active {
-    color: #000000;
-  }
-  @media (max-width: 600px) {
-    padding: 0.5rem;
-    font-size: 0.9rem;
-  }
+	color: #808080;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	padding: 1rem;
+	cursor: pointer;
+	&.active {
+	color: #000000;
+	}
+	@media (max-width: 600px) {
+	padding: 0.5rem;
+	font-size: 0.9rem;
+	}
 `;
 
 export const Bars = styled(FaBars)`

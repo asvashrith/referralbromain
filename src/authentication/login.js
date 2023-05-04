@@ -81,55 +81,52 @@ const Login = () => {
 	
 
 	return (
-		<div class = "parent">
-			<div>
-				<center>
-					<h1>ReferralBro</h1>
-				</center>
-			</div>
-			<div>
 
-				<div class = "parentLogin">
-					<div class="inputBox" >
-						<div class="phoneInputName">Enter Phone Number
-							<PhoneInput
-								placeholder="Enter phone number"
-								value={myPhonenumber}
-								onChange={setmyPhonenumber}
-							/>
-						</div>
-						<br></br>
-						<div class="nameInputName">Enter your Name
-							<br></br>
+		<div class="parent">
 
-							<input class = "inputNameBox"
-								value={myname}
-								onChange={(e) => { setmyname(e.target.value) }}
-								placeholder="Name"
-							/>
-						</div>
+			<div  class = "headerLabel1"> Referral-Bro </div>
+
+				<div class="inputBox">
+					<div>
+						<div class="headerLabel"> Login/SignUp</div>
+					</div>
+					<div class="labelInput">Enter Phone Number
+						<PhoneInput
+							placeholder="Enter phone number"
+							value={myPhonenumber}
+							onChange={setmyPhonenumber}
+						/>
+					</div>
+					<br></br>
+					<div class="nameInputName">Enter your Name
+					<br></br>
+
+						<input class="inputNameBox"
+							value={myname}
+							onChange={(e) => { setmyname(e.target.value) }}
+							placeholder="Name"
+						/>
+					</div>
+					<br /><br />
+					<div class="captcha" id="recaptcha-container"></div>
+					<button class="login-button"
+						onClick={signin}>Send OTP
+					</button>
+					<div style={{ display: show ? "block" : "none" }}>
+						<div class="labelInput">Enter OTP </div>
+
+						<input class="inputNameBox"
+							type="text"
+							placeholder={"Enter your OTP"}
+							onChange={(e) => { setotp(e.target.value) }}>
+						</input>
 						<br /><br />
-						<div class="captcha" id="recaptcha-container"></div>
-						<button class="loginButton"
-							onClick={signin}>Send OTP
+						<button class="login-button"
+							onClick={ValidateOtp}>Verify
 						</button>
-						<div style={{ display: show ? "block" : "none" }}>
-							<div class = "inputOtpName">Enter OTP </div>
-						
-							<input class="inputOTP"
-								type="text"
-								placeholder={"Enter your OTP"}
-								onChange={(e) => { setotp(e.target.value) }}>
-							</input>
-							<br /><br />
-							<button class="verifyButton"
-								onClick={ValidateOtp}>Verify
-							</button>
-						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	);
 }
 export default Login;

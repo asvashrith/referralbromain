@@ -7,7 +7,7 @@ const StudentPage = () => {
 
   return (
     <div>
-    <p>Job Oppurtunities for students and Early careers</p>
+    <p>Job oppurtunities for students and early careers</p>
     <JobCards/>
     </div>
   );

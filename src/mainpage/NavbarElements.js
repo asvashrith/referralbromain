@@ -1,5 +1,6 @@
 import { FaBars } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
+import {AppBar, Toolbar} from '@mui/material';
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
@@ -89,4 +90,14 @@ export const NavBtnLink = styled(Link)`
 		background: #fff;
 		color: #808080;
 	}
+`;
+
+export const StyledAppBar = styled(AppBar)`
+	background-color: #2e466e;
+`;
+
+export const StyledToolbar = styled(Toolbar)`
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
 `;

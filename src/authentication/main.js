@@ -10,9 +10,9 @@ import AdminPage from '../admin/AdminPage';
 // import Footerpage from '../footer/footer';
 import '../Css/landingPage.css';
 import { 
-	Nav,
 	NavLink,
-	NavMenu,
+	StyledAppBar,
+	StyledToolbar
 } from '../mainpage/NavbarElements';
 
 const Mainpage = () => {
@@ -29,8 +29,8 @@ const Mainpage = () => {
 					</center>
 				</div>
 
-				<AppBar position="sticky" elevation={0} sx={{backgroundColor: "#2e466e"}}>
-					<Toolbar sx={{alignItems: "center", justifyContent: "center", flexWrap: "wrap"}}>
+				<StyledAppBar position="sticky" elevation={0}>
+					<StyledToolbar>
 						<NavLink to='/about'>About</NavLink>
 						<NavLink to='/needReferral'>Need Referral</NavLink>
 						<NavLink to='/canRefer'>Can Refer</NavLink>
@@ -38,8 +38,8 @@ const Mainpage = () => {
 						<NavLink to={"#"}>
 							<button class = 'navItems' onClick={logout}>logout</button>
 						</NavLink>
-					</Toolbar>
-				</AppBar>
+					</StyledToolbar>
+				</StyledAppBar>
 
 				{/* Routes are defined below				 */}
 				<Routes>

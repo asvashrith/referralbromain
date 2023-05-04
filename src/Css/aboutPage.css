@@ -1,0 +1,19 @@
+.sectionContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    padding: 2rem;
+    background-color: #E1F2FE;
+}
+
+.sectionTitle {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.sectionDescription {
+    font-size: 1.1rem;
+    font-weight: lighter;
+}

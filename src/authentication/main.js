@@ -7,7 +7,7 @@ import AboutPage from '../mainpage/AboutPage';
 import NeedReferral from '../mainpage/NeedReferral';
 import StudentPage from '../mainpage/StudentPage';
 import AdminPage from '../admin/AdminPage';
-import Footerpage from '../footer/footer';
+// import Footerpage from '../footer/footer';
 import '../Css/landingPage.css';
 import { 
 	Nav,
@@ -25,11 +25,11 @@ const Mainpage = () => {
 			<Router>
 				<div class = "headingTag">
 					<center>
-						<div class = "headingTagText">ReferralBro </div>
+						<h1 style={{color : "#E1F2FE"}}>  ReferralBro </h1>
 					</center>
 				</div>
 
-				<AppBar position="sticky" elevation={0} sx={{backgroundColor: "#ff6666"}}>
+				<AppBar position="sticky" elevation={0} sx={{backgroundColor: "#2e466e"}}>
 					<Toolbar sx={{alignItems: "center", justifyContent: "center", flexWrap: "wrap"}}>
 						<NavLink to='/about'>About</NavLink>
 						<NavLink to='/needReferral'>Need Referral</NavLink>
@@ -49,10 +49,10 @@ const Mainpage = () => {
 					<Route path="/student" element={<StudentPage />} />
 					<Route path="/admin"  element={<AdminPage />} />
 					<Route path="" element={<AboutPage />} />
-					<Route path='foots' element = {<Footerpage/>} />
+					{/* <Route path='foots' element = {<Footerpage/>} /> */}
 				</Routes>
 			</Router>
-			<Footerpage />
+			{/* <Footerpage /> */}
 		</div>
 	);
 }

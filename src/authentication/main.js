@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import {AppBar, Toolbar} from '@mui/material';
 import { auth } from '../firebase';
 import { BrowserRouter as Router, Routes, Route, Link , useNavigate } from "react-router-dom";
 import CanRefer from '../mainpage/CanRefer';
@@ -20,27 +21,25 @@ const Mainpage = () => {
 	}
 	
 	return (
+		<div class = "mainPageParent">		
+			<Router>
+				<div class = "headingTag">
+					<center>
+						<div class = "headingTagText">ReferralBro </div>
+					</center>
+				</div>
 
-<div class = "mainPageParent">		
-		<Router>
-			<div class = "headingTag">
-				<center>
-					<div class = "headingTagText">ReferralBro </div>
-								</center>
-			</div>
-			
-				<Nav>
-					<NavMenu>
-						<NavLink  to='/about'>About</NavLink>
-						<NavLink to='/needReferral' >Need Referral</NavLink>
+				<AppBar position="sticky" elevation={0} sx={{backgroundColor: "#ff6666"}}>
+					<Toolbar sx={{alignItems: "center", justifyContent: "center", flexWrap: "wrap"}}>
+						<NavLink to='/about'>About</NavLink>
+						<NavLink to='/needReferral'>Need Referral</NavLink>
 						<NavLink to='/canRefer'>Can Refer</NavLink>
-						<NavLink to='/student' >Student</NavLink>
-
+						<NavLink to='/student'>Student</NavLink>
 						<NavLink to={"#"}>
 							<button class = 'navItems' onClick={logout}>logout</button>
 						</NavLink>
-					</NavMenu>
-				</Nav>
+					</Toolbar>
+				</AppBar>
 
 				{/* Routes are defined below				 */}
 				<Routes>
@@ -52,11 +51,9 @@ const Mainpage = () => {
 					<Route path="" element={<AboutPage />} />
 					<Route path='foots' element = {<Footerpage/>} />
 				</Routes>
-
 			</Router>
-				<Footerpage />
-		
-</div>
+			<Footerpage />
+		</div>
 	);
 }
 

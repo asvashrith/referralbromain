@@ -1,13 +1,35 @@
+.headerLabel{
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    font-size: 30px;
+    color: #E1F2FE;
+    font-family: Georgia;
+}
+.headerLabel1{
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    font-size: 30px;
+    color: #102B3F;
+    font-family: Georgia;
+}
+.body{
+    height: fit-content !important;
+}
 .parent{
     align-items: center;
-    flex-grow: 1;
     flex-direction: column;
     justify-content: center;
     display: flex;
-        
+    height: 100vh;
+    background-color: #E1F2FE;        
 }
 .inputBox {
-    background-color: rgb(194, 109, 143);
+    background-color: #102B3F;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
     padding: 50px;
 }
 .inputName{    
@@ -39,19 +61,27 @@
     border: 1px solid #CACACA;
     width: 98%;
 }
+.labelInput{
+    color: #E1F2FE;
+    font-weight: bold;
+    margin-top: 10px;
+}
 .phoneInputName{
+    color: #E1F2FE;
     font-weight: bold;
     margin-top: 10px;
 }
 .nameInputName{
+    color: #E1F2FE;
     font-weight: bold;
     margin-top: 10px;    
 }
+
 .inputNameBox{
     position: relative;
     font-size: 14px;
     letter-spacing: .01rem;
-    background: #FFFFFF;
+    background: #FFF;
     border: 1px solid #CACACA;
     border-radius: 5px;
     line-height: 25px;
@@ -59,7 +89,17 @@
     width: 300px;
     outline: none;
 }
-.inputOtpName{
-    font-weight: bold;
-    margin-top: 10px;
-}
+.login-button {
+    background-color: #E1F2FE;
+    color: #0c0c0c;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-out;
+  }
+  
+  .login-button:hover {
+    background-color: #0069d9;
+  }

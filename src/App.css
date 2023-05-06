@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.App-Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #E1F2FE;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

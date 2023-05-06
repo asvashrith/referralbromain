@@ -48,7 +48,7 @@ const Mainpage = () => {
 					<Route path="/about" element={<AboutPage />} />
 					<Route path="/student" element={<StudentPage />} />
 					<Route path="/admin"  element={<AdminPage />} />
-					<Route path="" element={<AboutPage />} />
+					<Route	exact path="" element={<AboutPage />} />
 					{/* <Route path='foots' element = {<Footerpage/>} /> */}
 				</Routes>
 			</Router>

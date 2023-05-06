@@ -27,12 +27,9 @@ const JobCards = () => {
 
   return (
     
-    <div >
-      <div class='displaycard'>
-        <p>hi</p>
-      </div>
+    <div>
       {jobs.map((job) => (
-        <div  key={job.id}>
+        <div class = "job-card" key={job.id}>
           <h3>{job.jobTitle}</h3>
           <p>Company Name: {job.companyName}</p>
           <p>Drive Type: {job.driveType}</p>

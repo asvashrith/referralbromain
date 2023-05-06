@@ -1,7 +1,32 @@
-.displaycard{
-    padding: 10px;
-    border: 1px;
-    margin: 2px;
-    border-width: 2px;
-    border-color:black ;
-}
+.job-card {
+    background-color: #E1F2FE;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    padding: 20px;
+  }
+  
+  .job-card h3 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .job-card p {
+    margin: 8px 0;
+  }
+  
+  .job-card a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .job-card a:hover {
+    background-color: #FFFFFF;
+    color: #1E90FF;
+  }  

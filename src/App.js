@@ -8,8 +8,8 @@ import "./App.css";
 import { useState, useEffect } from 'react';
 
 function App() {
-	const [user, setUser] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
+	const [user] = useAuthState(auth);
+	const [isLoading, setIsLoading] = useState(true);
 
 	/**
 	 * Here we set up a listener for authentication state changes.
@@ -17,16 +17,14 @@ function App() {
 	 * the new user object (or null if the user logs out), and display 
 	 * the loading spinner for 2 secs */
 	useEffect(() => {
-		const authUnsubscribe = auth.onAuthStateChanged(user => {
-			setUser(user);
-			setIsLoading(true);
-			setTimeout(() => {
-				setIsLoading(false);
-			}, 2000); 
+		const unsubscribe = auth.onAuthStateChanged(user => {
+		  setIsLoading(false);
+		  console.log(user);
+		}, error => {
+		  console.log('Authentication error:', error);
 		});
-		
-		return authUnsubscribe;
-	}, []);
+		return unsubscribe;
+	  }, []);
   
 	if (isLoading) {
 		return (

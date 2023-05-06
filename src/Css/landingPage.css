@@ -1,7 +1,9 @@
 .mainPageParent{
     margin-left: 40px;
     margin-right: 40px;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 .headingTag{
     background-color: #2e466e !important;

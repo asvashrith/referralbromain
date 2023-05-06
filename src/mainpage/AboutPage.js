@@ -6,7 +6,7 @@ import '../Css/aboutPage.css';
 const AboutPage = () =>{
 
     return (
-      <div className="sectionContainer">
+      <div class="sectionContainer">
         <div style={{ maxWidth: "800px" }}>
             <p style={{  fontSize: "1.15rem", marginBottom: "2rem" }}>The ReferralBro app offers a platform for users to refer their friends or colleagues for job opportunities, and for users to submit their resumes for referral. It consists of three main sections:
             </p>

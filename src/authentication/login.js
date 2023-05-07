@@ -18,13 +18,8 @@ const Login = () => {
 	const [final, setfinal] = useState('');
 	const db = firebase.firestore();
 
-
-
 	// Sent OTP
-	
 	const signin = async (e) => {
-		
-		
 		// Need to check why myPhonenumber is returning a object instead of number after taking input
 		if (myPhonenumber.validData.phoneNumber === "" || myPhonenumber.validData.phoneNumber.length < 10) return;
 
@@ -41,18 +36,13 @@ const Login = () => {
 			});
 
 		e.preventDefault();
-
-		
-		
 		// setmyname("");
 		// setmyPhonenumber("");
-
 	}
 	
 	// Validate OTP
 	const ValidateOtp = () => {
-		if (otp === null || final === null)
-			return;
+		if (otp === null || final === null) return;
 		final.confirm(otp).then(() => {
 			pushUserDetails();			
 			// success
@@ -60,6 +50,7 @@ const Login = () => {
 			alert("Wrong code");
 		})
 	}
+
 	const pushUserDetails = async () => {
 		try {
 			const docRef = doc(db, "userData",auth.currentUser.uid);
@@ -78,55 +69,68 @@ const Login = () => {
 			console.log(error)
 		}
 	}
-	
 
 	return (
-
 		<div class="parent">
+			<div  class = "headerLabel1">Referral-Bro</div>
+			<div class="inputBox">
+				{/* Header section */}
+				<div>
+					<div class="headerLabel">Login/SignUp</div>
+				</div>
 
-			<div  class = "headerLabel1"> Referral-Bro </div>
-
-				<div class="inputBox">
-					<div>
-						<div class="headerLabel"> Login/SignUp</div>
-					</div>
-					<div class="labelInput">Enter Phone Number
-						<PhoneInput
-							placeholder="Enter phone number"
-							value={myPhonenumber}
-							onChange={setmyPhonenumber}
-						/>
-					</div>
-					<br></br>
-					<div class="nameInputName">Enter your Name
-					<br></br>
-
-						<input class="inputNameBox"
-							value={myname}
-							onChange={(e) => { setmyname(e.target.value) }}
-							placeholder="Name"
-						/>
-					</div>
-					<br /><br />
-					<div class="captcha" id="recaptcha-container"></div>
-					<button class="login-button"
-						onClick={signin}>Send OTP
-					</button>
-					<div style={{ display: show ? "block" : "none" }}>
-						<div class="labelInput">Enter OTP </div>
-
-						<input class="inputNameBox"
+				{/* Captcha section */}
+				{show ? (
+					<div class="enterOtpLayout">
+						<div class="labelInput">Enter OTP</div>
+						<input
+							class="inputNameBox"
 							type="text"
 							placeholder={"Enter your OTP"}
-							onChange={(e) => { setotp(e.target.value) }}>
-						</input>
-						<br /><br />
-						<button class="login-button"
-							onClick={ValidateOtp}>Verify
+							onChange={(e) => {
+							setotp(e.target.value);
+							}}
+						/>
+						<div style={{ display: "flex", justifyContent: "flex-end" }}>
+							<a class="notReceived" href="#" onClick={() => window.location.reload()}>
+								Not received code?
+							</a>
+						</div>
+						<button class="login-button" onClick={ValidateOtp}>
+							Verify
 						</button>
 					</div>
-				</div>
+				) : (
+					<>
+						{/* Phone number section */}
+						<div class="labelInput">
+							Enter Phone Number
+							<PhoneInput
+								placeholder="Enter phone number"
+								value={myPhonenumber}
+								onChange={setmyPhonenumber} />
+						</div>
+						<br/>
+
+						{/* Name section */}
+						<div class="nameInputName">
+							Enter your Name
+							<br/>
+							<input 
+								class="inputNameBox"
+								value={myname}
+								onChange={(e) => { setmyname(e.target.value) }}
+								placeholder="Name"/>
+						</div>
+						<br/><br/>
+						<div className="captcha" id="recaptcha-container" />
+						<button className="login-button" onClick={signin}>
+							Send OTP
+						</button>
+					</>
+				)}
 			</div>
+		</div>
 	);
 }
 export default Login;

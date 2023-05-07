@@ -99,7 +99,15 @@
     cursor: pointer;
     transition: background-color 0.2s ease-out;
   }
-  
-  .login-button:hover {
+.login-button:hover {
     background-color: #0069d9;
-  }
+}
+.enterOtpLayout {
+    display: block;
+    height: 30vh;
+}
+.notReceived {
+    color: #E1F2FE;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}

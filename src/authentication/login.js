@@ -81,7 +81,7 @@ const Login = () => {
 
 				{/* Captcha section */}
 				{show ? (
-					<div style={{ display: "block", height: "40vh"}}>
+					<div class="enterOtpLayout">
 						<div class="labelInput">Enter OTP</div>
 						<input
 							class="inputNameBox"

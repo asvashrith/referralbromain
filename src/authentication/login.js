@@ -91,10 +91,10 @@ const Login = () => {
 							setotp(e.target.value);
 							}}
 						/>
-						<div style={{ display: "flex", justifyContent: "flex-end" }}>
-							<a class="notReceived" href="#" onClick={() => window.location.reload()}>
+						<div class='notReceivedCodeBox'>
+							<button class="notReceivedCodeButton" onClick={() => window.location.reload()}>
 								Not received code?
-							</a>
+							</button>
 						</div>
 						<button class="login-button" onClick={ValidateOtp}>
 							Verify

@@ -106,8 +106,16 @@
     display: block;
     height: 30vh;
 }
-.notReceived {
+.notReceivedCodeButton {
     color: #E1F2FE;
-    margin-right: 10px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.notReceivedCodeBox {
+    display: flex;
+    justify-content: flex-end;
 }

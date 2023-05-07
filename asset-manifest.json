@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/referralBroMain/static/css/main.8875581a.css",
-    "main.js": "/referralBroMain/static/js/main.a12897df.js",
+    "main.css": "/referralBroMain/static/css/main.89e34219.css",
+    "main.js": "/referralBroMain/static/js/main.b734461a.js",
     "static/js/787.68a61dc5.chunk.js": "/referralBroMain/static/js/787.68a61dc5.chunk.js",
     "index.html": "/referralBroMain/index.html",
-    "main.8875581a.css.map": "/referralBroMain/static/css/main.8875581a.css.map",
-    "main.a12897df.js.map": "/referralBroMain/static/js/main.a12897df.js.map",
+    "main.89e34219.css.map": "/referralBroMain/static/css/main.89e34219.css.map",
+    "main.b734461a.js.map": "/referralBroMain/static/js/main.b734461a.js.map",
     "787.68a61dc5.chunk.js.map": "/referralBroMain/static/js/787.68a61dc5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8875581a.css",
-    "static/js/main.a12897df.js"
+    "static/css/main.89e34219.css",
+    "static/js/main.b734461a.js"
   ]
 }

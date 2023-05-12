@@ -35,9 +35,9 @@ const Mainpage = () => {
 						<NavLink to='/needReferral'>Need Referral</NavLink>
 						<NavLink to='/canRefer'>Can Refer</NavLink>
 						<NavLink to='/student'>Student</NavLink>
-						<NavLink to={"#"}>
+						{/* <NavLink to={"#"}>
 							<button class = 'navItems' onClick={logout}>logout</button>
-						</NavLink>
+						</NavLink> */}
 					</Toolbar>
 				</AppBar>
 

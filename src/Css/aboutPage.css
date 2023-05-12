@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    padding: 2rem;
+    padding: 1rem;
     background-color: #E1F2FE;
 }
 
@@ -17,56 +17,73 @@
     font-size: 1.1rem;
     font-weight: lighter;
 }
+.about-page-content{
+  width: 100%;
+}
+
+.welcome-tag{
+  font-size: 2rem;    
+  display: grid;
+  justify-content: center;
+  font-family: cursive;
+  font-size: xx-large;
+}
+
+.aboutpage-descp{
+  margin-left: 10px;
+  font-size: medium;
+}
+
 .cards-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .card {
-    width: 300px;
-    height: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    overflow: hidden;
-  }
-  
-  .card.active {
-    width: 400px;
-    height: 400px;
-    transition: all 0.3s ease-in-out;
-    z-index: 1;
-  }
-  
-  .card.expandable:hover {
-    transform: translateY(-20px);
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .card-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-  }
-  
-  .card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .card-content {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .card-content h2 {
-    margin-bottom: 10px;
-  }
-  
-  .card-content p {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #555;
-  }
-  
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  width: 350px;
+  height: 325px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  border: 1px solid #ccc; /* Add border style */
+}
+
+.card.active {
+  width: 400px;
+  height: 400px;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.card.expandable:hover {
+  transform: translateY(-20px);
+  transition: all 0.2s ease-in-out;
+}
+
+.card-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 10px;
+  text-align: center;
+}
+
+.card-content h2 {
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}

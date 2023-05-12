@@ -74,7 +74,7 @@
 }
 
 .card-content {
-  padding: 10px;
+  padding: 4px;
   text-align: center;
 }
 
@@ -83,7 +83,6 @@
 }
 
 .card-content p {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #555;
+  font-size: medium;
+  color: #0d0d0d;
 }

@@ -41,19 +41,19 @@ const AboutPage = () =>{
     const cards = [
         {
           title: 'Need Referral',
-          description: 'Get a referral from a friend to join our community',
+          description: 'Unlock the power of referrals from Bros! Visit this section and submit your details to get referred.',
           img: CanReferImg,
           isExpandable: true,
         },
         {
           title: 'Can Refer',
-          description: 'Refer your friends and earn rewards for every successful referral',
+          description: 'Become a bro for Referral-Bro! Join our platform and share your work email to receive resumes directly in your inbox for which you can provide referral.',
           img: NeedReferralImg,
           isExpandable: true,
         },
         {
           title: 'Student',
-          description: 'Join our community as a student and get access to exclusive resources',
+          description: 'Recent graduate looking to kickstart your career in a cool company? Explore list of exciting job openings & find the perfect opportunity to begin your career path!',
           img: studentsImgs,
           isExpandable: true,
         },

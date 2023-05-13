@@ -7,6 +7,8 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import CanReferImg from '../Assets/needReferral.jpeg';
 import NeedReferralImg from '../Assets/resumeBlue.png';
 import studentsImgs from '../Assets/graduateBlue.png';
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -17,24 +19,23 @@ const AboutPage = () =>{
     const userUniqueId = auth.currentUser.uid;
     const db = firebase.firestore();
     const [isLoading, setisLoading] = useState(true);
+    let dataFetched;
     const description = 'Here, you can refer friends and colleagues for job opportunities or get referred yourself. Whether youre a seasoned professional or a young talent, our platform is your one-stop destination to connect with industry insiders. Say goodbye to endless job applications and impersonal processes.';
 //  Through referrals, you can unlock exciting career prospects and tap into the power of connections
     useEffect(async () => {
-
         try {
             const docRef = doc(db, "userData", userUniqueId);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 setusersData(docSnap.data().myname);
                 console.log(docSnap.data().myname);
-                setisLoading(false)
-            } else {
+                setisLoading(false);
+              } else {
                 console.log("Document does not exist")
             }
         } catch (error) {
             console.log(error)
         }
-
     });
 
 
@@ -67,6 +68,19 @@ const AboutPage = () =>{
         setActiveCard(null);
       };
 
+      const redirectToSection = (title) => {
+        const history = useNavigate();
+        if (title === 'Need Referral') {
+          history.push('/needReferral');
+        } else if (title === 'Can Refer') {
+          history.push('/canRefer');
+        } else if (title === 'Student') {
+          history.push('/student');
+        } else {
+          // Handle any other sections or fallback logic
+        }
+      };      
+
 
 
 
@@ -77,6 +91,8 @@ const AboutPage = () =>{
           <br></br>
           <div class="aboutpage-descp">{description}</div>
           <br></br>
+          <br></br>
+
 
           <div className="cards-container">
             {cards.map((card, index) => (
@@ -90,7 +106,7 @@ const AboutPage = () =>{
                   <img src={card.img} alt={card.title} />
                 </div>
                 <div className="card-content">
-                  <h2>{card.title}</h2>
+                  <h2 onClick = {() => redirectToSection(card.title)}>{card.title}</h2>
                   <p>{card.description}</p>
                 </div>
               </div>

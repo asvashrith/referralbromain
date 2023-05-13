@@ -9,9 +9,6 @@ import NeedReferralImg from '../Assets/resumeBlue.png';
 import studentsImgs from '../Assets/graduateBlue.png';
 import { useNavigate } from 'react-router-dom';
 
-
-
-
 const AboutPage = () =>{
     const [activeCard, setActiveCard] = useState(null);
     const [usersData, setusersData] = useState('');
@@ -68,21 +65,24 @@ const AboutPage = () =>{
         setActiveCard(null);
       };
 
+      const navigate = useNavigate();
+
+      const sectionUrls = {
+        'Need Referral': '/needReferral',
+        'Can Refer': '/canRefer',
+        'Student': '/student',
+        // Add any other sections and their corresponding URLs here
+      };
+
       const redirectToSection = (title) => {
-        const history = useNavigate();
-        if (title === 'Need Referral') {
-          history.push('/needReferral');
-        } else if (title === 'Can Refer') {
-          history.push('/canRefer');
-        } else if (title === 'Student') {
-          history.push('/student');
+        const sectionUrl = sectionUrls[title];
+
+        if (sectionUrl) {
+          navigate(sectionUrl);
         } else {
           // Handle any other sections or fallback logic
         }
       };      
-
-
-
 
     return (
       <div class="sectionContainer">

@@ -6,9 +6,6 @@ import 'react-phone-input-2/lib/style.css'
 import { PhoneInput } from 'react-contact-number-input';
 import Popup from "reactjs-popup";
 
-
-
-
 const Login = () => {
 	// Inputs
 	const [myPhonenumber, setmyPhonenumber] = useState("");
@@ -21,8 +18,20 @@ const Login = () => {
 	// Sent OTP
 	const signin = async (e) => {
 		// Need to check why myPhonenumber is returning a object instead of number after taking input
-		if (myPhonenumber.validData.phoneNumber === "" || myPhonenumber.validData.phoneNumber.length < 10) return;
+		if (
+			!myPhonenumber.validData ||
+			!myPhonenumber.validData.phoneNumber ||
+			myPhonenumber.validData.phoneNumber.length < 10
+		) {
+			alert("Please enter a valid phone number");
+        	return;
+		}
 
+		if (myname.length < 3) {
+			alert("Name should be at least 3 letters long");
+			return;
+		}
+		
 		let verify = new firebase.auth.RecaptchaVerifier('recaptcha-container');
 
 		auth.signInWithPhoneNumber(myPhonenumber.validData.phoneNumber,verify).then((result) => {

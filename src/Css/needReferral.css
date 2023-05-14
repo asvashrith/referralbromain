@@ -37,5 +37,63 @@
 	position:relative;
 	top:1px;
 }
-
+.referral-form {
+	display: flex;
+	flex-direction: column;
+	padding: 50px;
+	background-color: #E1F2FE;
+	}
+.referral-form__description {
+	margin-bottom: 25px;
+	font-family: cursive;
+}
+.referral-form__form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+}
+.referral-form__label {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.referral-form__input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+}
+.referral-form__file-upload {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.referral-form__file-input {
+	display: none;
+}
+.referral-form__file-button {
+	padding: 10px;
+	background-color: #23395e;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	margin-left: 10px;
+}
+.referral-form__submit-section {
+	display: flex;
+	justify-content: center;
+}
+.referral-form__submit-button {
+	padding: 10px 20px;
+	background-color: #23395e;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
         

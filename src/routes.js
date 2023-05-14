@@ -1,21 +1,22 @@
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Login from "./authentication/login";
-import Mainpage from "./authentication/main";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import CanRefer from './mainpage/CanRefer';
+import AboutPage from './mainpage/AboutPage';
+import NeedReferral from './mainpage/NeedReferral';
+import StudentPage from './mainpage/StudentPage';
+import AdminPage from './admin/AdminPage';
 
-
-function Routing() {
+const AppRoutes = () => {
   return (
-    <Router>
-      
-      <Routes>
-        <Route path="" component={Login} />
-        <Route path="/main" component = {Mainpage} />
-        <Route path='asv' component={Mainpage}/>
-
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/needReferral" element={<NeedReferral />} />
+      <Route path="/canRefer" element={<CanRefer />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/student" element={<StudentPage />} />
+      <Route path="/admin" element={<AdminPage />} />
+      <Route exact path="" element={<AboutPage />} />
+    </Routes>
   );
-}
+};
 
-export default Routing;
+export default AppRoutes;

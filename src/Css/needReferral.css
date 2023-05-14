@@ -44,9 +44,9 @@
 	background-color: #E1F2FE;
 	height: 100%;
 }
-.referral-form__description {
-	margin-bottom: 25px;
-	font-family: cursive;
+.referral-form__separator {
+    border-top: 2px double #ccc;
+    margin: 20px;
 }
 .referral-form__form {
 	display: flex;
@@ -64,7 +64,6 @@
 	margin-bottom: 20px;
 	border: 2px solid #ccc;
 	border-radius: 5px;
-	font-size: 16px;
 }
 .referral-form__file-upload {
 	display: flex;

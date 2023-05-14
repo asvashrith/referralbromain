@@ -76,11 +76,12 @@ const NeedReferral = () => {
     if (!isLoading && usersData.formSubmitted !== true) {
         return (
             <section class="referral-form">
-                <div class="referral-form__description">
+                <div>
                     <p>
                         Find your dream job by connecting with people who can refer you to open positions. Fill out the form below and upload your resume. Our team will review your details and send them to our network. Thank you for choosing us to help in your job search!
                     </p>
                 </div>
+                <div class="referral-form__separator" />
                 <form class="referral-form__form">
                     <label class="referral-form__label" htmlFor="full-name">
                         Enter your full name:

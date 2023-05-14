@@ -40,6 +40,7 @@ const NeedReferral = () => {
                 userCurrentCompany: currentCompany,
                 userCurrentLocation: currentLocation,
                 userCurrentRole: currentRole,
+                formSubmitted: true
             });
             console.log("details updated succesfully")
         } catch (error) {

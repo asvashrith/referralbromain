@@ -56,6 +56,7 @@
 .referral-form__label {
 	font-weight: bold;
 	margin-bottom: 10px;
+	font-family: cursive;
 }
 .referral-form__input {
 	width: 100%;

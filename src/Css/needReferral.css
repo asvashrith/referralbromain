@@ -42,7 +42,8 @@
 	flex-direction: column;
 	padding: 50px;
 	background-color: #E1F2FE;
-	}
+	height: 100%;
+}
 .referral-form__description {
 	margin-bottom: 25px;
 	font-family: cursive;
@@ -50,7 +51,6 @@
 .referral-form__form {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
 	width: 100%;
 }
 .referral-form__label {
@@ -87,6 +87,8 @@
 .referral-form__submit-section {
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	padding-top: 10px;
 }
 .referral-form__submit-button {
 	padding: 10px 20px;
@@ -96,5 +98,6 @@
 	border-radius: 5px;
 	cursor: pointer;
 	font-size: 16px;
+	width: 200px
 }
         

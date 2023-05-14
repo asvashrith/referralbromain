@@ -19,20 +19,18 @@ const NeedReferral = () => {
     const userUniqueId = auth.currentUser.uid;
 
     useEffect(async () => {
-
         try {
             const docRef = doc(db, "userData", userUniqueId);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 setUsersData(docSnap.data());
-                setIsLoading(false)
+                setIsLoading(false);
             } else {
                 console.log("Document does not exist")
             }
         } catch (error) {
             console.log(error)
         }
-
     });
 
     const pushUserDetails = async () => {
@@ -42,7 +40,6 @@ const NeedReferral = () => {
                 userCurrentCompany: currentCompany,
                 userCurrentLocation: currentLocation,
                 userCurrentRole: currentRole,
-                formSubmitted: true
             });
             console.log("details updated succesfully")
         } catch (error) {
@@ -68,7 +65,6 @@ const NeedReferral = () => {
     }
     const updateDetails=()=>{
         usersData.formSubmitted = false
-    
     }
     const openPopupForResumeUpload = () => {
         <Popup trigger={<button> Trigger</button>} position="right center">
@@ -82,7 +78,7 @@ const NeedReferral = () => {
             <section class="referral-form">
                 <div class="referral-form__description">
                     <p>
-                        We're here to help you find your dream job by connecting you with people who can refer you to open positions. To get started, simply fill out the form below and upload your resume. Our team will review your details and send them to our network of contacts. Thank you for choosing us to help you in your job search!
+                        Find your dream job by connecting with people who can refer you to open positions. Fill out the form below and upload your resume. Our team will review your details and send them to our network. Thank you for choosing us to help in your job search!
                     </p>
                 </div>
                 <form class="referral-form__form">
@@ -111,7 +107,7 @@ const NeedReferral = () => {
                     </label>
                     <div class="referral-form__file-upload">
                         <input class="referral-form__file-input" id="resume-file" type="file" onChange={(e) => setResumeFile(e.target.files[0])} />
-                        <button class="referral-form__file-button" type="button" onClick={upload}>
+                        <button class="referral-form__file-button" type="button" onClick={(e) => { document.getElementById('resume-file').click() }}>
                             Choose File
                         </button>
                     </div>

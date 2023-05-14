@@ -61,6 +61,15 @@ const AboutPage = () =>{
         setActiveCard(null);
       };
 
+      const navigate = useNavigate();
+
+      const sectionUrls = {
+        'Need Referral': '/needReferral',
+        'Can Refer': '/canRefer',
+        'Student': '/student',
+        // Add any other sections and their corresponding URLs here
+      };
+
       const redirectToSection = (title) => {
         if (title === 'Need Referral') {
           history('/needReferral');
@@ -72,9 +81,6 @@ const AboutPage = () =>{
           // Handle any other sections or fallback logic
         }
       };      
-
-
-
 
     return (
       <div class="sectionContainer">

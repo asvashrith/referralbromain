@@ -5,36 +5,32 @@ import "../Css/needReferral.css"
 import Login from '../authentication/login';
 import Popup from "reactjs-popup";
 
-
-
 const NeedReferral = () => {
-    const [fullName, setfullName] = useState("");
-    const [currentCompany, setcurrentCompany] = useState("");
-    const [currentRole, setcurrentRole] = useState("");
-    const [currentLocation, setcurrentLocation] = useState("");
-    const [phone, setphone] = useState("");
-    const [isLoading, setisLoading] = useState(true);
-    const [usersData, setusersData] = useState('');
-    const [resumeFile, setresumeFile] = useState('');
-    const [newresumeFile, setnewresumeFile] = useState('');
+    const [fullName, setFullName] = useState("");
+    const [currentCompany, setCurrentCompany] = useState("");
+    const [currentRole, setCurrentRole] = useState("");
+    const [currentLocation, setCurrentLocation] = useState("");
+    const [phone, setPhone] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
+    const [usersData, setUsersData] = useState('');
+    const [resumeFile, setResumeFile] = useState('');
+    const [newResumeFile, setNewResumeFile] = useState('');
     const db = firebase.firestore();
     const userUniqueId = auth.currentUser.uid;
 
     useEffect(async () => {
-
         try {
             const docRef = doc(db, "userData", userUniqueId);
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
-                setusersData(docSnap.data());
-                setisLoading(false)
+                setUsersData(docSnap.data());
+                setIsLoading(false);
             } else {
                 console.log("Document does not exist")
             }
         } catch (error) {
             console.log(error)
         }
-
     });
 
     const pushUserDetails = async () => {
@@ -62,15 +58,14 @@ const NeedReferral = () => {
     }
 
     const uploadAgain = () => {
-        if (newresumeFile == null)
+        if (newResumeFile == null)
             return;
         storage.ref(`/resumeFiles/${auth.currentUser.uid}`)
-            .put(newresumeFile)
+            .put(newResumeFile)
             .on("state_changed", alert("success"), alert);
     }
     const updateDetails=()=>{
         usersData.formSubmitted = false
-    
     }
     const openPopupForResumeUpload = () => {
         <Popup trigger={<button> Trigger</button>} position="right center">
@@ -81,40 +76,51 @@ const NeedReferral = () => {
 
     if (!isLoading && usersData.formSubmitted !== true) {
         return (
+            <section class="referral-form">
+                <div>
+                    <p>
+                        Find your dream job by connecting with people who can refer you to open positions. Fill out the form below and upload your resume. Our team will review your details and send them to our network. Thank you for choosing us to help in your job search!
+                    </p>
+                </div>
+                <div class="referral-form__separator" />
+                <form class="referral-form__form">
+                    <label class="referral-form__label" htmlFor="full-name">
+                        Enter your full name:
+                    </label>
+                    <input class="referral-form__input" id="full-name" type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} />
 
-            <div class='needReferralBox'>
-                <label class='label'>Enter you full Name</label>
-                <input type="Text"
-                    value={fullName}
-                    onChange={(e) => { setfullName(e.target.value) }} />
+                    <label class="referral-form__label" htmlFor="phone-number">
+                        Enter your phone number:
+                    </label>
+                    <input class="referral-form__input" id="phone-number" type="number" placeholder={usersData.Number} value={phone} onChange={(e) => setPhone(e.target.value)} />
 
+                    <label class="referral-form__label" htmlFor="current-company">
+                        Enter your current company:
+                    </label>
+                    <input class="referral-form__input" id="current-company" type="text" value={currentCompany} onChange={(e) => setCurrentCompany(e.target.value)} />
 
-                <label class='label'>Enter your phone</label>
-                <input type="Text"
-                    placeholder={usersData.Number}
-                    value={phone}
-                    onChange={(e) => { setphone(e.target.value); }} />
+                    <label class="referral-form__label" htmlFor="current-role">
+                        Enter your current role:
+                    </label>
+                    <input class="referral-form__input" id="current-role" type="text" value={currentRole} onChange={(e) => setCurrentRole(e.target.value)} />
 
-                {/* <label class='label'>Enter your location</label>
-                <input type = "Text"
-                    value = {currentLocation} 
-                    onChange  = {(e) => { setcurrentLocation(e.target.value)}} /> */}
+                    <label class="referral-form__label" htmlFor="resume-file">
+                        Upload your resume:
+                    </label>
+                    <div class="referral-form__file-upload">
+                        <input class="referral-form__file-input" id="resume-file" type="file" onChange={(e) => setResumeFile(e.target.files[0])} />
+                        <button class="referral-form__file-button" type="button" onClick={(e) => { document.getElementById('resume-file').click() }}>
+                            Choose File
+                        </button>
+                    </div>
 
-                <label class='label'>Enter your currentCompany</label>
-                <input type="Text"
-                    value={currentCompany}
-                    onChange={(e) => { setcurrentCompany(e.target.value) }} />
-                <label class='label'>Enter your currentRole</label>
-                <input type="Text"
-                    value={currentRole}
-                    onChange={(e) => { setcurrentRole(e.target.value) }} />
-                <br></br>
-                <label class='label'>Upload your Resume</label>
-                <br></br>
-                <input type="File" onChange={(e) => { setresumeFile(e.target.files[0]) }} />
-                <br></br>
-                <button onClick={upload}>Submit</button>
-            </div>
+                    <div class="referral-form__submit-section">
+                        <button class="referral-form__submit-button" type="button" onClick={upload}>
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </section>
         );
     }
     else if (usersData.formSubmitted === true) {

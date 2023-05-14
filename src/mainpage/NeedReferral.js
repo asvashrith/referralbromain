@@ -90,7 +90,7 @@ const NeedReferral = () => {
                     <label class="referral-form__label" htmlFor="phone-number">
                         Enter your phone number:
                     </label>
-                    <input class="referral-form__input" id="phone-number" type="tel" placeholder={usersData.Number} value={phone} onChange={(e) => setPhone(e.target.value)} />
+                    <input class="referral-form__input" id="phone-number" type="number" placeholder={usersData.Number} value={phone} onChange={(e) => setPhone(e.target.value)} />
 
                     <label class="referral-form__label" htmlFor="current-company">
                         Enter your current company:

@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/referralBroMain/static/css/main.89e34219.css",
-    "main.js": "/referralBroMain/static/js/main.b734461a.js",
+    "main.css": "/referralBroMain/static/css/main.007d262c.css",
+    "main.js": "/referralBroMain/static/js/main.e13a762b.js",
     "static/js/787.68a61dc5.chunk.js": "/referralBroMain/static/js/787.68a61dc5.chunk.js",
+    "static/media/graduate.png": "/referralBroMain/static/media/graduate.735c31ff47698b69e4f0.png",
+    "static/media/canrefer.png": "/referralBroMain/static/media/canrefer.b435281a7a6ae5add4c5.png",
+    "static/media/needReferral.jpeg": "/referralBroMain/static/media/needReferral.d085ba20e82c347debea.jpeg",
     "index.html": "/referralBroMain/index.html",
-    "main.89e34219.css.map": "/referralBroMain/static/css/main.89e34219.css.map",
-    "main.b734461a.js.map": "/referralBroMain/static/js/main.b734461a.js.map",
+    "main.007d262c.css.map": "/referralBroMain/static/css/main.007d262c.css.map",
+    "main.e13a762b.js.map": "/referralBroMain/static/js/main.e13a762b.js.map",
     "787.68a61dc5.chunk.js.map": "/referralBroMain/static/js/787.68a61dc5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.89e34219.css",
-    "static/js/main.b734461a.js"
+    "static/css/main.007d262c.css",
+    "static/js/main.e13a762b.js"
   ]
 }

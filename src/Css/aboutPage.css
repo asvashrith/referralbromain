@@ -38,6 +38,9 @@
   display: flex;
   justify-content: space-around;
 }
+.title-text{
+  text-decoration: underline;
+}
 
 .card {
   width: 350px;

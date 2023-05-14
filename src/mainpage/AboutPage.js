@@ -1,25 +1,20 @@
 import React, {  useEffect,useState } from 'react';
-import { createBootstrapComponent } from 'react-bootstrap/esm/ThemeProvider';
-import Mainpage from '../authentication/main';
 import '../Css/aboutPage.css';
-import { firebase, auth, storage } from '../firebase';
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import CanReferImg from '../Assets/needReferral.jpeg';
-import NeedReferralImg from '../Assets/resumeBlue.png';
-import studentsImgs from '../Assets/graduateBlue.png';
+import { firebase, auth } from '../firebase';
+import { doc, getDoc } from "firebase/firestore";
+import NeedReferralImg from '../Assets/needReferral.jpeg';
+import CanReferImg from '../Assets/canrefer.png';
+import studentsImgs from '../Assets/graduate.png';
 import { useNavigate } from 'react-router-dom';
 
 
 
-
 const AboutPage = () =>{
+    const history = useNavigate();
     const [activeCard, setActiveCard] = useState(null);
     const [usersData, setusersData] = useState('');
-
     const userUniqueId = auth.currentUser.uid;
     const db = firebase.firestore();
-    const [isLoading, setisLoading] = useState(true);
-    let dataFetched;
     const description = 'Here, you can refer friends and colleagues for job opportunities or get referred yourself. Whether youre a seasoned professional or a young talent, our platform is your one-stop destination to connect with industry insiders. Say goodbye to endless job applications and impersonal processes.';
 //  Through referrals, you can unlock exciting career prospects and tap into the power of connections
     useEffect(async () => {
@@ -28,8 +23,6 @@ const AboutPage = () =>{
             const docSnap = await getDoc(docRef);
             if (docSnap.exists()) {
                 setusersData(docSnap.data().myname);
-                console.log(docSnap.data().myname);
-                setisLoading(false);
               } else {
                 console.log("Document does not exist")
             }
@@ -43,13 +36,13 @@ const AboutPage = () =>{
         {
           title: 'Need Referral',
           description: 'Unlock the power of referrals from Bros! Visit this section and submit your details to get referred.',
-          img: CanReferImg,
+          img: NeedReferralImg,
           isExpandable: true,
         },
         {
           title: 'Can Refer',
           description: 'Become a bro for Referral-Bro! Join our platform and share your work email to receive resumes directly in your inbox for which you can provide referral.',
-          img: NeedReferralImg,
+          img: CanReferImg,
           isExpandable: true,
         },
         {
@@ -69,13 +62,12 @@ const AboutPage = () =>{
       };
 
       const redirectToSection = (title) => {
-        const history = useNavigate();
         if (title === 'Need Referral') {
-          history.push('/needReferral');
+          history('/needReferral');
         } else if (title === 'Can Refer') {
-          history.push('/canRefer');
+          history('/canRefer');
         } else if (title === 'Student') {
-          history.push('/student');
+          history('/student');
         } else {
           // Handle any other sections or fallback logic
         }
@@ -106,7 +98,7 @@ const AboutPage = () =>{
                   <img src={card.img} alt={card.title} />
                 </div>
                 <div className="card-content">
-                  <h2 onClick = {() => redirectToSection(card.title)}>{card.title}</h2>
+                  <h2 class = "title-text" onClick = {() => redirectToSection(card.title)}>{card.title}</h2>
                   <p>{card.description}</p>
                 </div>
               </div>

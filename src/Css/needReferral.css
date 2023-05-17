@@ -42,7 +42,7 @@
 	flex-direction: column;
 	padding: 50px;
 	background-color: #E1F2FE;
-	height: 100%;
+	height: inherit;
 }
 .referral-form__separator {
     border-top: 2px double #ccc;
@@ -57,18 +57,21 @@
 	font-weight: bold;
 	margin-bottom: 10px;
 	font-family: cursive;
+	margin-left: 20%;
 }
 .referral-form__input {
-	width: 100%;
+	width: 65%;
 	padding: 10px;
 	margin-bottom: 20px;
 	border: 2px solid #ccc;
 	border-radius: 5px;
+	margin-left: 20%;
 }
 .referral-form__file-upload {
 	display: flex;
 	align-items: center;
 	margin-bottom: 20px;
+	margin-left: 20%;
 }
 .referral-form__file-input {
 	display: none;

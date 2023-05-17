@@ -4,6 +4,8 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import "../Css/needReferral.css"
 import Login from '../authentication/login';
 import Popup from "reactjs-popup";
+import {CircularProgress} from '@mui/material';
+
 
 const NeedReferral = () => {
     const [fullName, setFullName] = useState("");
@@ -73,6 +75,15 @@ const NeedReferral = () => {
         </Popup>
 
     }
+
+    
+	if (isLoading) {
+		return (
+			<div className="App-Loader">
+				<CircularProgress />
+			</div>
+		);
+	}
 
     if (!isLoading && usersData.formSubmitted !== true) {
         return (

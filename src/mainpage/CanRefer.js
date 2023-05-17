@@ -1,6 +1,10 @@
 import React, { Component,useState,useEffect  } from 'react';
 import { firebase, auth, storage } from '../firebase';
-import "../Css/needReferral.css"
+import { doc, getDoc } from "firebase/firestore";
+import "../Css/needReferral.css";
+import {CircularProgress} from '@mui/material';
+import { reload } from '@firebase/auth';
+
 
 const CanRefer = () => {
     const [workEmail, setWorkEmail] = useState("");
@@ -8,12 +12,16 @@ const CanRefer = () => {
     const [jobDepartment, setJobDepartment] = useState("");
     const [experienceRequired, setExperienceRequired] = useState("");
 
-	const [isLoading, setisLoading] = useState(true);
-	const [userData, setUserData] = useState('');
+    const [usersData, setusersData] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
+
 	
     const [showVerification, setShowVerification] = useState(false);
     const [verificationCode, setVerificationCode] = useState('');
     const [emailVerified, setEmailVerified] = useState(false);
+
+  const [isValid, setIsValid] = useState(false);
+
 
     const db = firebase.firestore();
     const userUniqueId = auth.currentUser.uid;
@@ -21,6 +29,40 @@ const CanRefer = () => {
     const handleSubmit = () => {
         pushUserDetails();
     }
+useEffect(() => {
+  const fetchUserData = async () => {
+    try {
+      const docRef = doc(db, "userData", userUniqueId);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setusersData(docSnap.data());
+      } else {
+        console.log("Document does not exist");
+      }
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  fetchUserData();
+}, [db, userUniqueId]);
+
+useEffect(() => {
+  // Update the workEmail state when the browser autofill fills the input
+  if (workEmail) {
+    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const isValidEmail = emailRegex.test(workEmail);
+    setIsValid(isValidEmail);
+  }
+}, [workEmail]);
+
+useEffect(() => {
+  if (!isLoading && usersData.CanReferFormSubmitted === true) {
+    // Handle the case when the form has been submitted
+  }
+}, [isLoading, usersData.CanReferFormSubmitted]);
+
 
     const pushUserDetails = async () => {
         try {
@@ -29,8 +71,11 @@ const CanRefer = () => {
                 referrerCurrentCompany: currentCompany,
                 referrerJobDepartment: jobDepartment,
                 referrerExperienceRequired: experienceRequired,
+                CanReferFormSubmitted: true,
+                CanRefer: true 
             });
-            console.log("details updated succesfully")
+            alert("Thanks for Submitting Details")
+            
         } catch (error) {
             console.log(error)
         }
@@ -39,22 +84,60 @@ const CanRefer = () => {
     // Check if email address is valid
     // TODO(srivatsav): If yes, send an OTP to the users email
     const handleSendOTP = (e) => {
+        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        setIsValid(emailRegex.test(workEmail));
+        if(isValid === false){
+            alert('Enter an valid email: ' + workEmail);
+        }
+        else{
         let index = workEmail.indexOf('@');
         let indexqi2 = workEmail.indexOf('.');
         if (indexqi2 > 0) {
             setCurrentCompany(workEmail.substring(index+1,indexqi2));
-            setShowVerification(true);
+            setEmailVerified(true);
+
+            //commenting this as we need to implement OTP yet setShowVerification(true);
         }
+    }
     }
 
     // TODO(srivatsav): Verify if OTP is valid
     const handleVerify = () => {
+        if(verificationCode === null){
+            alert('Please enter the OTP');
+        } 
         if (verificationCode === "1234") {
             setShowVerification(false);
             setEmailVerified(true);
+        }else{
+            alert('invalid code')
         }
     }
 
+
+    
+	if (isLoading) {
+		return (
+			<div className="App-Loader">
+				<CircularProgress />
+			</div>
+		);
+	}
+
+
+    if (!isLoading && usersData.CanReferFormSubmitted === true) {
+        return (<section class="referral-form">
+
+            <div>
+                <p>
+                    Thanks for submitting your details we'll share
+                     bro's details who need referral
+                </p>
+            </div>
+        </section>
+        )
+    }
+    if(!isLoading ){
     return (
         <section class="referral-form">
             <div>
@@ -74,7 +157,7 @@ const CanRefer = () => {
                         {!emailVerified && (
                             <div class="referral-form__submit-section">
                                 <button class="referral-form__submit-button" type="button" onClick={handleSendOTP}>
-                                    Send OTP
+                                    Submit
                                 </button>
                             </div> 
                         )}
@@ -120,6 +203,7 @@ const CanRefer = () => {
             </form>
         </section>
     );
+                }
 }
 
 export default CanRefer;

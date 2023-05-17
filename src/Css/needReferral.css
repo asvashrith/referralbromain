@@ -42,7 +42,7 @@
 	flex-direction: column;
 	padding: 50px;
 	background-color: #E1F2FE;
-	height: 100%;
+	height: inherit;
 }
 .referral-form__separator {
     border-top: 2px double #ccc;

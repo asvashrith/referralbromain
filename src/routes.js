@@ -13,7 +13,7 @@ const AppRoutes = () => {
       <Route path="/canRefer" element={<CanRefer />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/student" element={<StudentPage />} />
-      <Route path="/admin" element={<AdminPage />} />
+      <Route path="/referralBroMain" element = {<AboutPage/>}/>
       <Route exact path="" element={<AboutPage />} />
     </Routes>
   );

@@ -4,6 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 import "../Css/needReferral.css";
 import {CircularProgress} from '@mui/material';
 import { reload } from '@firebase/auth';
+import FilesTable from './FilesTable';
 
 
 const CanRefer = () => {
@@ -128,12 +129,13 @@ useEffect(() => {
     if (!isLoading && usersData.CanReferFormSubmitted === true) {
         return (<section class="referral-form">
 
-            <div>
+            <div style={{display: "grid" , justifyContent : "center", fontFamily: "cursive"}}>
                 <p>
-                    Thanks for submitting your details we'll share
-                     bro's details who need referral
+                    Thanks for being referral-Bro below you can find the bro's details who need referral
                 </p>
             </div>
+            <br></br>
+            <FilesTable/>
         </section>
         )
     }

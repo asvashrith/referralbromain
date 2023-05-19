@@ -138,8 +138,8 @@ const NeedReferral = () => {
         return (
             <div class='needReferralBox'>
                 <p>Hello {usersData.myname} your form is submitted your resume will be shared</p>
-                <label>If you wanna update resume click below</label>
-                <button class = "myButton" onClick={updateDetails}>Update details</button>
+                {/* <label>If you wanna update resume click below</label> */}
+                {/* <button class = "myButton" onClick={updateDetails}>Update details</button> */}
 
                 {/* <Popup trigger={<button> update resume</button>} position="right center">
                     <div>

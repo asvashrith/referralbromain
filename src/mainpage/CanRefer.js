@@ -1,13 +1,16 @@
-import React, { Component,useState,useEffect  } from 'react';
+import React, { useState,useEffect  } from 'react';
 import { firebase, auth, storage } from '../firebase';
 import { doc, getDoc } from "firebase/firestore";
 import "../Css/needReferral.css";
 import {CircularProgress} from '@mui/material';
-import { reload } from '@firebase/auth';
 import FilesTable from './FilesTable';
+import { firebase, auth } from '../firebase';
+import { sendSignInLinkToEmail, signInWithEmailLink, EmailAuthProvider } from 'firebase/auth';
+
 
 
 const CanRefer = () => {
+    
     const [workEmail, setWorkEmail] = useState("");
     const [currentCompany, setCurrentCompany] = useState("");
     const [jobDepartment, setJobDepartment] = useState("");
@@ -21,7 +24,7 @@ const CanRefer = () => {
     const [verificationCode, setVerificationCode] = useState('');
     const [emailVerified, setEmailVerified] = useState(false);
 
-  const [isValid, setIsValid] = useState(false);
+    const [isValid, setIsValid] = useState(false);
 
 
     const db = firebase.firestore();
@@ -87,33 +90,64 @@ useEffect(() => {
     const handleSendOTP = (e) => {
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         setIsValid(emailRegex.test(workEmail));
-        if(isValid === false){
-            alert('Enter an valid email: ' + workEmail);
-        }
-        else{
-        let index = workEmail.indexOf('@');
-        let indexqi2 = workEmail.indexOf('.');
-        if (indexqi2 > 0) {
+        
+        if (isValid === false) {
+          alert('Enter a valid email: ' + workEmail);
+        } else {
+          let index = workEmail.indexOf('@');
+          let indexqi2 = workEmail.indexOf('.');
+          if (indexqi2 > 0) {
             setCurrentCompany(workEmail.substring(index+1,indexqi2));
             setEmailVerified(true);
-
-            //commenting this as we need to implement OTP yet setShowVerification(true);
+      
+            // Send the email verification link
+            const actionCodeSettings = {
+              url: window.location.href,
+              handleCodeInApp: true,
+            };
+      
+            sendSignInLinkToEmail(auth, workEmail, actionCodeSettings)
+              .then(() => {
+                setShowVerification(true);
+              })
+              .catch((error) => {
+                console.log('Error sending email verification link:', error);
+              });
+          }
         }
-    }
-    }
+      };
+      
 
-    // TODO(srivatsav): Verify if OTP is valid
     const handleVerify = () => {
-        if(verificationCode === null){
-            alert('Please enter the OTP');
-        } 
-        if (verificationCode === "1234") {
-            setShowVerification(false);
-            setEmailVerified(true);
-        }else{
-            alert('invalid code')
-        }
-    }
+  if (verificationCode === null) {
+    alert('Please enter the OTP');
+  } else {
+    signInWithEmailLink(auth, workEmail, window.location.href)
+      .then((result) => {
+        // User successfully signed in with the email link
+        setShowVerification(false);
+        setEmailVerified(true);
+
+        // Link the accounts
+        const credential = EmailAuthProvider.credentialWithLink(workEmail, window.location.href);
+
+        auth.currentUser.linkWithCredential(credential)
+          .then((usercred) => {
+            const linkedUser = usercred.user;
+            console.log('Accounts linked successfully:', linkedUser);
+            // Perform any necessary actions after successful account linking
+          })
+          .catch((error) => {
+            console.log('Account linking failed:', error);
+            // Handle any errors that occur during account linking
+          });
+      })
+      .catch((error) => {
+        console.log('Error verifying email:', error);
+      });
+  }
+};
+
 
 
     
@@ -144,7 +178,9 @@ useEffect(() => {
         <section class="referral-form">
             <div>
                 <p>
-                    Make referring talented candidates to your company easy. Simply share your work email to receive resumes directly in your inbox from potential candidates actively seeking work. Help us find top talent and earn a bonus by referring great candidates!
+                    Make referring talented candidates to your company easy.
+                    Simply share your work email to receive resumes directly in your inbox from potential candidates actively seeking work.
+                    Help us find top talent and earn a bonus by referring great candidates!
                 </p>
             </div>
             <div class="referral-form__separator" />

@@ -2,15 +2,15 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/storage'
+import * as config from './config';
 
 const firebaseConfig = {
-	// credentials of referralBro in firebase
-        apiKey: "AIzaSyDcchvK2C6WHZZ2aFEKnpyS_9vYm2fkJSY",
-        authDomain: "referralbro.firebaseapp.com",
-        projectId: "referralbro",
-        storageBucket: "referralbro.appspot.com",
-        messagingSenderId: "806654918049",
-        appId: "1:806654918049:web:2a196098bbc4df46f4dfe0"
+        apiKey: config.APIKEY,
+        authDomain: config.AUTHDOMAIN,
+        projectId: config.PROJECTID,
+        storageBucket: config.STORAGEBUCKET,
+        messagingSenderId: config.MSGID,
+        appId: config.APPID
 };
 
 firebase.initializeApp(firebaseConfig);

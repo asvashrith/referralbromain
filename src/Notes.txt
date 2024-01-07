@@ -14,3 +14,7 @@ Behaviour of the app:
   - Once the `can refer` section is completed by the user, admin will verify and email the resumes accordingly
 - STUDENT section:
   - Need to display job opportunities
+
+  -- PROD file not found 404 error
+  trail and error 
+    1. updated package.json where we update homepage and private properties.

@@ -20,5 +20,6 @@ Behaviour of the app:
     1. updated package.json where we update homepage and private properties.
         "homepage": "https://asvashrith.github.io/referralBroMain", -- added repo name to the URL didn't worked.
         "private": false,
-    2. Removing repo name in homepage property and only keeping private property to false.
+    2. Removing repo name in homepage property and only keeping private property to false. -- failed
+    3. trying with renaming the name of the repo from referralBroMain to referralbromain as app "name" property is referralbromain
     

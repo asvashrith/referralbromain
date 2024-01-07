@@ -18,3 +18,7 @@ Behaviour of the app:
   -- PROD file not found 404 error
   trail and error 
     1. updated package.json where we update homepage and private properties.
+        "homepage": "https://asvashrith.github.io/referralBroMain", -- added repo name to the URL didn't worked.
+        "private": false,
+    2. Removing repo name in homepage property and only keeping private property to false.
+    

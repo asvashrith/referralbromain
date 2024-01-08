@@ -1,6 +1,6 @@
 .mainPageParent{
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 0px;
+    margin-right: 0px;
     display: flex;
     flex-direction: column;
     height: 100vh;

@@ -13,8 +13,9 @@ const AppRoutes = () => {
       <Route path="/canRefer" element={<CanRefer />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/student" element={<StudentPage />} />
-      <Route path="/referralBroMain" element = {<AboutPage/>}/>
+      <Route path="/referralbromain" element = {<AboutPage/>}/>
       <Route exact path="" element={<AboutPage />} />
+      <Route  path="*" element={<AboutPage />} />
     </Routes>
   );
 };

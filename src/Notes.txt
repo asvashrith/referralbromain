@@ -15,11 +15,16 @@ Behaviour of the app:
 - STUDENT section:
   - Need to display job opportunities
 
-  -- PROD file not found 404 error
+  -- PROD file not found 404 error - done
   trail and error 
     1. updated package.json where we update homepage and private properties.
         "homepage": "https://asvashrith.github.io/referralBroMain", -- added repo name to the URL didn't worked.
         "private": false,
     2. Removing repo name in homepage property and only keeping private property to false. -- failed
-    3. trying with renaming the name of the repo from referralBroMain to referralbromain as app "name" property is referralbromain
+    3. trying with renaming the name of the repo from referralBroMain to referralbromain as app "name" property is referralbromain --failed
+    4. Try out with hashrouter instead of Browser router.
+    5. Added 404.html file to fix the issue and replaces hashrouter to browserrouter
+    RCA : github pages don't support browser router of react as it is a client-side routing there are 2 fixes for this one is replacing hashrouter instead of Browser router this option didn't worked for us may be our complete app is not wrapped in the router.
+    option 2 was to add 404.html file which redirects when ever there is a direct URL this file is found in react community which is a standard fix and made changes to index.html as well.
+
     
